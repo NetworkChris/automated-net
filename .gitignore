@@ -1,0 +1,5 @@
+# macOS Files
+.DS_Store
+
+# Excluded Files
+initial-lab-config

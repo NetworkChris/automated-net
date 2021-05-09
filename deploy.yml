@@ -1,0 +1,9 @@
+---
+
+- name: Deploy Network as Code
+  hosts: core:access
+  gather_facts: no
+  connection: network_cli
+  roles:
+    - ntp
+    - vlans

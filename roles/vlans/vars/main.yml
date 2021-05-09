@@ -1,0 +1,11 @@
+---
+
+vlans:
+  - id: 900
+    name: MGMT_DATA
+    address: 192.168.100.254
+    mask: 255.255.255.0
+  - id: 901
+    name: MGMT_VOICE
+    address: 192.168.101.254
+    mask: 255.255.255.0

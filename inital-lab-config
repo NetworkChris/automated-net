@@ -1,0 +1,25 @@
+hostname mgmt-sw2
+
+ip ssh version 2
+ip ssh time-out 60
+ip ssh authentication-retries 2
+ip domain-name lab.local
+crypto key gen rsa mod 2048
+
+username ansible privilege 15 secret ansible
+enable secret ansible
+
+line vty 0 4
+transport input ssh
+line con 0
+logging sync
+
+aaa new-model
+aaa authentication login default local
+aaa authentication enable default enable
+aaa authorization exec default local if-authenticated
+
+int gi0/0
+no switchport
+ip add  10.0.7.233 255.255.255.0
+no shut

@@ -1,0 +1,10 @@
+---
+
+- name: Configure NTP Settings
+  with_items: "{{ ntp }}"
+  cisco.ios.ios_ntp:
+    server: "{{ item.server }}"
+    key_id: "1"
+    auth_key: "{{ item.key }}"
+    auth: true
+    state: present

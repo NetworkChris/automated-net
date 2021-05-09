@@ -1,0 +1,6 @@
+[core]
+mgmt-core   ansible_host=10.0.7.231     ansible_network_os=ios
+
+[access]
+mgmt-sw1    ansible_host=10.0.7.232     ansible_network_os=ios
+mgmt-sw2    ansible_host=10.0.7.233     ansible_network_os=ios
