@@ -1,0 +1,25 @@
+---
+
+- name: Build Allowed Vlans List
+  set_fact:
+    vlans_allowed: "{{ vlans | map(attribute='id') | join(',') }}"
+
+- name: Configure Uplinks as Trunks and Allow Vlans
+  with_items: "{{ uplinks }}"
+  cisco.ios.ios_l2_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      mode: trunk
+      trunk:
+        encapsulation: dot1q
+        allowed_vlans: "{{ vlans_allowed }}"
+    state: merged
+
+- name: Configure Descriptions on Uplinks and Enable Ports
+  with_items: "{{ uplinks }}"
+  cisco.ios.ios_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      description: "{{ item.description }}"
+      enabled: true
+    state: merged

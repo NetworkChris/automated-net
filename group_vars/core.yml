@@ -1,0 +1,7 @@
+---
+
+uplinks:
+  - name: GigabitEthernet0/1
+    description: mgmt-sw1
+  - name: GigabitEthernet0/2
+    description: mgmt-sw2

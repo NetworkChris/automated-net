@@ -1,0 +1,4 @@
+---
+uplinks:
+  - name: GigabitEthernet0/1
+    description: mgmt-core
